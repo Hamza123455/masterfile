@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Editor with AI Subtitles</title>
     <script type="module">
-        import { createFFmpeg, fetchFile } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.mjs';
+        import { createFFmpeg, fetchFile } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js';
         
         const ffmpeg = createFFmpeg({ log: true });
 
@@ -32,7 +32,7 @@
 
             statusText.textContent = "Audio extracted. Generating subtitles...";
 
-            // 🚀 Placeholder: AI subtitles integration can be added here.
+            // 🚀 Placeholder: AI subtitle API integration can be added here.
             // Example: Call an API or process audio with Web Speech API.
 
             statusText.textContent = "Subtitles added. Encoding final video...";
