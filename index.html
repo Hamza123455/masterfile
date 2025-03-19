@@ -3,51 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Video Editor</title>
+    <title>Simple Video Editor</title>
 </head>
 <body>
-    <h2>Simple Video Editor</h2>
+    <h2>Basic Video Trimmer</h2>
     
     <input type="file" id="videoInput" accept="video/*">
     <video id="videoPlayer" controls width="500"></video>
     
     <br>
-    
+
     <label>Start Time (seconds):</label>
     <input type="number" id="startTime" value="0">
-    
+
     <label>End Time (seconds):</label>
     <input type="number" id="endTime" value="10">
-    
+
     <button onclick="trimVideo()">Trim Video</button>
     
+    <p id="status"></p>
+
     <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.9.7/dist/ffmpeg.min.js"></script>
     <script>
         const videoInput = document.getElementById("videoInput");
         const videoPlayer = document.getElementById("videoPlayer");
+        const statusText = document.getElementById("status");
+
+        let selectedFile;
 
         videoInput.addEventListener("change", function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const url = URL.createObjectURL(file);
+            selectedFile = event.target.files[0];
+            if (selectedFile) {
+                const url = URL.createObjectURL(selectedFile);
                 videoPlayer.src = url;
             }
         });
 
         async function trimVideo() {
+            if (!selectedFile) {
+                alert("Please select a video first.");
+                return;
+            }
+
+            const startTime = parseFloat(document.getElementById("startTime").value);
+            const endTime = parseFloat(document.getElementById("endTime").value);
+
+            if (startTime >= endTime) {
+                alert("End time must be greater than start time.");
+                return;
+            }
+
+            statusText.textContent = "Loading FFmpeg...";
             const { createFFmpeg, fetchFile } = FFmpeg;
             const ffmpeg = createFFmpeg({ log: true });
 
             await ffmpeg.load();
+            statusText.textContent = "Processing...";
 
-            const file = videoInput.files[0];
-            const startTime = document.getElementById("startTime").value;
-            const endTime = document.getElementById("endTime").value;
-
-            ffmpeg.FS("writeFile", "input.mp4", await fetchFile(file));
+            ffmpeg.FS("writeFile", "input.mp4", await fetchFile(selectedFile));
             await ffmpeg.run(
                 "-i", "input.mp4",
-                "-ss", startTime, "-to", endTime,
+                "-ss", startTime.toString(),
+                "-to", endTime.toString(),
                 "-c", "copy",
                 "output.mp4"
             );
@@ -60,6 +77,8 @@
             a.href = url;
             a.download = "trimmed_video.mp4";
             a.click();
+
+            statusText.textContent = "Trimmed video downloaded!";
         }
     </script>
 </body>
