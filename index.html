@@ -16,9 +16,17 @@
     <button onclick="generateSubtitles()">Generate Subtitles</button>
     <p id="status"></p>
     
-    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.9.7/dist/ffmpeg.min.js"></script>
-    <script src="https://unpkg.com/vosk-browser/dist/vosk.js"></script>
     <script>
+        const worker = new Worker("ffmpeg-worker.js");
+
+        worker.postMessage("load");
+
+        worker.onmessage = function (event) {
+            if (event.data.status === "loaded") {
+                console.log("FFmpeg.js is ready!");
+            }
+        };
+
         const videoInput = document.getElementById("videoInput");
         const videoPlayer = document.getElementById("videoPlayer");
         const statusText = document.getElementById("status");
@@ -39,54 +47,7 @@
             }
             
             statusText.textContent = "Extracting audio...";
-            const { createFFmpeg, fetchFile } = FFmpeg;
-            const ffmpeg = createFFmpeg({ log: true });
-            await ffmpeg.load();
-
-            ffmpeg.FS("writeFile", "input.mp4", await fetchFile(selectedFile));
-            await ffmpeg.run("-i", "input.mp4", "-q:a", "0", "-map", "a", "audio.wav");
-            
-            const audioData = ffmpeg.FS("readFile", "audio.wav");
-            const audioBlob = new Blob([audioData.buffer], { type: "audio/wav" });
-            
-            statusText.textContent = "Generating subtitles...";
-            const model = new Vosk.Model("https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip");
-            await model.load();
-            const recognizer = new model.Recognizer();
-            recognizer.setWords(true);
-            
-            const reader = new FileReader();
-            reader.readAsArrayBuffer(audioBlob);
-            reader.onloadend = async () => {
-                const result = recognizer.acceptWaveform(new Uint8Array(reader.result));
-                const transcript = result.text;
-                
-                const srt = generateSRT(transcript);
-                ffmpeg.FS("writeFile", "subtitles.srt", srt);
-                await ffmpeg.run("-i", "input.mp4", "-vf", "subtitles=subtitles.srt", "output.mp4");
-                
-                const finalVideo = ffmpeg.FS("readFile", "output.mp4");
-                const videoBlob = new Blob([finalVideo.buffer], { type: "video/mp4" });
-                const url = URL.createObjectURL(videoBlob);
-                
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = "video_with_subtitles.mp4";
-                a.click();
-
-                statusText.textContent = "Subtitles added! Downloading video.";
-            };
-        }
-
-        function generateSRT(text) {
-            const lines = text.split(" ");
-            let srt = "";
-            let time = 0;
-            for (let i = 0; i < lines.length; i++) {
-                srt += `${i + 1}\n00:00:${String(time).padStart(2, '0')},000 --> 00:00:${String(time + 2).padStart(2, '0')},000\n${lines[i]}\n\n`;
-                time += 2;
-            }
-            return srt;
+            worker.postMessage({ action: "extractAudio", file: selectedFile });
         }
     </script>
 </body>
