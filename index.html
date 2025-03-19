@@ -3,32 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Video Editor</title>
+    <title>Video Editor with AI Subtitles</title>
 </head>
 <body>
-    <h2>Basic Video Trimmer</h2>
+    <h2>Video Editor with AI Subtitles</h2>
     
     <input type="file" id="videoInput" accept="video/*">
     <video id="videoPlayer" controls width="500"></video>
     
     <br>
-
-    <label>Start Time (seconds):</label>
-    <input type="number" id="startTime" value="0">
-
-    <label>End Time (seconds):</label>
-    <input type="number" id="endTime" value="10">
-
-    <button onclick="trimVideo()">Trim Video</button>
     
+    <button onclick="generateSubtitles()">Generate Subtitles</button>
     <p id="status"></p>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.9.7/dist/ffmpeg.min.js"></script>
+    <script src="https://unpkg.com/vosk-browser/dist/vosk.js"></script>
     <script>
         const videoInput = document.getElementById("videoInput");
         const videoPlayer = document.getElementById("videoPlayer");
         const statusText = document.getElementById("status");
-
         let selectedFile;
 
         videoInput.addEventListener("change", function(event) {
@@ -39,46 +32,61 @@
             }
         });
 
-        async function trimVideo() {
+        async function generateSubtitles() {
             if (!selectedFile) {
                 alert("Please select a video first.");
                 return;
             }
-
-            const startTime = parseFloat(document.getElementById("startTime").value);
-            const endTime = parseFloat(document.getElementById("endTime").value);
-
-            if (startTime >= endTime) {
-                alert("End time must be greater than start time.");
-                return;
-            }
-
-            statusText.textContent = "Loading FFmpeg...";
+            
+            statusText.textContent = "Extracting audio...";
             const { createFFmpeg, fetchFile } = FFmpeg;
             const ffmpeg = createFFmpeg({ log: true });
-
             await ffmpeg.load();
-            statusText.textContent = "Processing...";
 
             ffmpeg.FS("writeFile", "input.mp4", await fetchFile(selectedFile));
-            await ffmpeg.run(
-                "-i", "input.mp4",
-                "-ss", startTime.toString(),
-                "-to", endTime.toString(),
-                "-c", "copy",
-                "output.mp4"
-            );
+            await ffmpeg.run("-i", "input.mp4", "-q:a", "0", "-map", "a", "audio.wav");
+            
+            const audioData = ffmpeg.FS("readFile", "audio.wav");
+            const audioBlob = new Blob([audioData.buffer], { type: "audio/wav" });
+            
+            statusText.textContent = "Generating subtitles...";
+            const model = new Vosk.Model("https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip");
+            await model.load();
+            const recognizer = new model.Recognizer();
+            recognizer.setWords(true);
+            
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(audioBlob);
+            reader.onloadend = async () => {
+                const result = recognizer.acceptWaveform(new Uint8Array(reader.result));
+                const transcript = result.text;
+                
+                const srt = generateSRT(transcript);
+                ffmpeg.FS("writeFile", "subtitles.srt", srt);
+                await ffmpeg.run("-i", "input.mp4", "-vf", "subtitles=subtitles.srt", "output.mp4");
+                
+                const finalVideo = ffmpeg.FS("readFile", "output.mp4");
+                const videoBlob = new Blob([finalVideo.buffer], { type: "video/mp4" });
+                const url = URL.createObjectURL(videoBlob);
+                
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "video_with_subtitles.mp4";
+                a.click();
 
-            const data = ffmpeg.FS("readFile", "output.mp4");
-            const videoBlob = new Blob([data.buffer], { type: "video/mp4" });
-            const url = URL.createObjectURL(videoBlob);
+                statusText.textContent = "Subtitles added! Downloading video.";
+            };
+        }
 
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "trimmed_video.mp4";
-            a.click();
-
-            statusText.textContent = "Trimmed video downloaded!";
+        function generateSRT(text) {
+            const lines = text.split(" ");
+            let srt = "";
+            let time = 0;
+            for (let i = 0; i < lines.length; i++) {
+                srt += `${i + 1}\n00:00:${String(time).padStart(2, '0')},000 --> 00:00:${String(time + 2).padStart(2, '0')},000\n${lines[i]}\n\n`;
+                time += 2;
+            }
+            return srt;
         }
     </script>
 </body>
