@@ -1,12 +1,6 @@
 {
   "employees": [
     {
-      "name": "Muhammad Hamza",
-      "email": "mh6868222@gmail.com",
-      "role": "abc",
-      "department": "cba"
-    },
-    {
       "empid": "0148784",
       "name": "Muhammad Hamza",
       "role": "nothing",
