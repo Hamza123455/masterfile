@@ -19,6 +19,26 @@
       "referenceby": "abdulghafoor",
       "refcontact": "03438816961",
       "refadd": "village kurri beesbagla po mallot tehsil and district bagh ajk"
+    },
+    {
+      "empid": "00154",
+      "name": "test",
+      "fathername": "test",
+      "education": "test",
+      "dateofbirth": "15451",
+      "cnic": "15465-1354651-6",
+      "fathercnic": "11111-1111111-1",
+      "empcurrentaddress": "test",
+      "empparmaddress": "test",
+      "empcontactno": "1645648579",
+      "empfatherno": "16546565",
+      "maritialstatus": "test",
+      "familycount": "1654",
+      "fatherjob": "test",
+      "emppreviousjob": "test",
+      "referenceby": "test",
+      "refcontact": "1654",
+      "refadd": "test"
     }
   ]
 }
