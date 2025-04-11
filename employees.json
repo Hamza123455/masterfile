@@ -1,26 +1,6 @@
 {
   "employees": [
     {
-      "empid": "00154",
-      "name": "test",
-      "fathername": "test",
-      "education": "test",
-      "dateofbirth": "15451",
-      "cnic": "15465-1354651-6",
-      "fathercnic": "11111-1111111-1",
-      "empcurrentaddress": "test",
-      "empparmaddress": "test",
-      "empcontactno": "1645648579",
-      "empfatherno": "16546565",
-      "maritialstatus": "test",
-      "familycount": "1654",
-      "fatherjob": "test",
-      "emppreviousjob": "test",
-      "referenceby": "test",
-      "refcontact": "1654",
-      "refadd": "test"
-    },
-    {
       "empid": "005394646495",
       "name": "Muhammad Hamza",
       "fathername": "Abdul Ghafoor",
