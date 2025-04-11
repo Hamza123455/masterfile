@@ -1,12 +1,6 @@
 {
   "employees": [
     {
-      "empid": "0148784",
-      "name": "Muhammad Hamza",
-      "role": "nothing",
-      "department": "thins"
-    },
-    {
       "empid": "0053",
       "name": "Muhammad Hamza",
       "fathername": "Abdul Ghafoor",
