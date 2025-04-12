@@ -127,7 +127,7 @@
       "refadd": "SAME AS EMPLOYE"
     },
     {
-      "srno": 3,
+      "srno": "3",
       "empid": "00123",
       "name": "ABDUL GHAFOOR",
       "fathername": "HAYAT KHAN",
