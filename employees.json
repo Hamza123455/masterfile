@@ -146,27 +146,6 @@
       "referenceby": "SABIR NAZIR",
       "refcontact": "000000000000000",
       "refadd": "SAME AS EMPLOYE"
-    },
-    {
-      "srno": "6",
-      "empid": "005394646495",
-      "name": "Muhammad Hamza",
-      "fathername": "Abdul Ghafoor",
-      "education": "matric",
-      "dateofbirth": "20-1-20063",
-      "cnic": "82101-8459266-5",
-      "fathercnic": "82101-0302725-9",
-      "empcurrentaddress": "islamabad",
-      "empparmaddress": "village kurri beesbagla po mallot tehsil and district bagh ajk",
-      "empcontactno": "03495822994",
-      "empfatherno": "03438816961",
-      "maritialstatus": "single",
-      "familycount": "6",
-      "fatherjob": "guard",
-      "emppreviousjob": "arfa",
-      "referenceby": "abdulghafoor",
-      "refcontact": "03438816961",
-      "refadd": "village kurri beesbagla po mallot tehsil and district bagh ajk"
     }
   ]
 }
