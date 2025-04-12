@@ -39,26 +39,6 @@
       "referenceby": "SABIR NAZIR",
       "refcontact": "000000000000000",
       "refadd": "SAME AS EMPLOYE"
-    },
-    {
-      "empid": "23",
-      "name": "ASD",
-      "fathername": "ASD",
-      "education": "ASD",
-      "dateofbirth": "ASD",
-      "cnic": "23123-3333333-3",
-      "fathercnic": "34444-4444444-4",
-      "empcurrentaddress": "ASDA",
-      "empparmaddress": "SDA",
-      "empcontactno": "23234",
-      "empfatherno": "3423",
-      "maritialstatus": "SDA",
-      "familycount": "23",
-      "fatherjob": "ASD",
-      "emppreviousjob": "ASD",
-      "referenceby": "AS",
-      "refcontact": "23323",
-      "refadd": "ADASDD"
     }
   ]
 }
