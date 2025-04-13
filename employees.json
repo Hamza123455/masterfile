@@ -3384,30 +3384,6 @@
       "refadd": "",
       "dateofjoining": "",
       "salary": 29500
-    },
-    {
-      "srno": "145",
-      "empid": "00156465",
-      "name": "abctest",
-      "fathername": "jlkj;",
-      "education": "jlj;lkj",
-      "department": "jlkj;lkj",
-      "dateofbirth": "4674685",
-      "cnic": "45666-6666666-6",
-      "fathercnic": "45566-6666666-6",
-      "empcurrentaddress": "gsdg",
-      "empparmaddress": "4654",
-      "empcontactno": "654654",
-      "empfatherno": "654654",
-      "maritialstatus": "65",
-      "familycount": "465",
-      "fatherjob": "465",
-      "emppreviousjob": "46",
-      "referenceby": "54",
-      "refcontact": "65",
-      "refadd": "465",
-      "dateofjoining": "464",
-      "salary": "654654"
     }
   ]
 }
