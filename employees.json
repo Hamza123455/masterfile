@@ -175,6 +175,7 @@
       "name": "Muhammad Hamza",
       "fathername": "Abdul Ghafoor",
       "education": "ICS",
+      "department": "Senior",
       "dateofbirth": "20-1-2003",
       "cnic": "82101-8459266-5",
       "fathercnic": "82101-0302725-9",
@@ -188,7 +189,8 @@
       "emppreviousjob": "Celebex Communications pvt ltd.",
       "referenceby": "Abdul Ghafoor Khan",
       "refcontact": "03438816961",
-      "refadd": "Village Kurri Beesbagla, P.O. Mallot, Tehsil and District Bagh Ajk"
+      "refadd": "Village Kurri Beesbagla, P.O. Mallot, Tehsil and District Bagh Ajk",
+      "dateofjoining": "2023-07-27"
     },
     {
       "srno": 10,
