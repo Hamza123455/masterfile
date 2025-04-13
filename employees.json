@@ -2961,27 +2961,6 @@
       "referenceby": "",
       "refcontact": "",
       "refadd": ""
-    },
-    {
-      "srno": "2",
-      "empid": "22",
-      "name": "34SDF",
-      "fathername": "DFSDF",
-      "education": "SDF",
-      "dateofbirth": "SD",
-      "cnic": "45666-6666666-6",
-      "fathercnic": "45666-6666666-6",
-      "empcurrentaddress": "15465",
-      "empparmaddress": "4654",
-      "empcontactno": "654",
-      "empfatherno": "654",
-      "maritialstatus": "65",
-      "familycount": "465",
-      "fatherjob": "465",
-      "emppreviousjob": "46",
-      "referenceby": "54",
-      "refcontact": "6",
-      "refadd": "465"
     }
   ]
 }
