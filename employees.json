@@ -1,5 +1,7 @@
 {
   "password": "STPOST",
+  "editpassword": "EDIT1",
+  "delpassword": "DEL1",
   "employees": [
     {
       "srno": 1,
