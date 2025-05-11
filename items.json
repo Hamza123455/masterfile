@@ -4429,11 +4429,10 @@
     "ItemName": "Arfa Tatri 100Gm",
     "UrduName": "ٹاٹری 100 گرام"
   },
-
-  {
-    "ItemCode" : 7887722110188,
-    "ItemName" : "Arfa Red Chilli Powder kunri 800 Gm",
-    "UrduName" : "سرخ مرچ پاؤڈر 800 گرام"
+   {
+    "ItemCode": 7887722110188,
+    "ItemName": "Arfa Red Chilli Powder Kunri 800gm",
+    "UrduName": "سرخ مرچ پاوڈر 800 گرام"
   },
   {
     "ItemCode": 7887722103454,
