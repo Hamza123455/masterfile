@@ -410,7 +410,7 @@
       "salary": 31500
     },
     {
-      "srno": 18,
+      "srno": 103,
       "empid": 65148,
       "name": "Majid Ali",
       "fathername": "",
@@ -2450,12 +2450,12 @@
       "salary": 25000
     },
     {
-      "srno": 103,
+      "srno": 18,
       "empid": 65248,
       "name": "Musharaf",
       "fathername": "",
       "education": "",
-      "department": "Worker",
+      "department": "Laundry",
       "dateofbirth": "",
       "cnic": "",
       "fathercnic": "",
