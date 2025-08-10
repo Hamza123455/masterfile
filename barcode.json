@@ -1066,5 +1066,13 @@
     "time": "2025-08-10T15:19",
     "barcodeImage": "",
     "extraLink": "https://punjabcashandcarry.com.pk:8082/api/ItemProduct/printBarcode1?ItemProductIds=14590&QTYs=2000&Size=2&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTeXN0ZW1Vc2VySWQiOjE5MiwiaWF0IjoxNzU0ODAxODQ1LCJleHAiOjE3NTQ4ODgyNDV9.wWOuaGpSydI7g0vTHhf1IeCpr3y2udySsBye7Hy58F8&MFGDates=2025-08-10&EXPDates=2026-08-10"
+  },
+  {
+    "item": "Arfa Raisen Kabli 100Gm",
+    "qty": "8",
+    "pickedBy": "Sufyan Afzal",
+    "time": "2025-08-10T16:25",
+    "barcodeImage": "",
+    "extraLink": "offline code"
   }
 ]
