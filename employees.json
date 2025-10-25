@@ -3984,6 +3984,34 @@
       "refadd": "",
       "dateofjoining": "28-8-2025",
       "salary": 25000
+    },
+    {
+      "srno": "9",
+      "empid": "65267",
+      "name": "M Hamza Ghafoor",
+      "fathername": "Abdul Ghafoor Khan",
+      "education": "Ics",
+      "department": "Senior",
+      "dateofbirth": "20-1-2003",
+      "cnic": "82101-8459266-5",
+      "fathercnic": "82101-0302725-9",
+      "empcurrentaddress": "Islamabad",
+      "empparmaddress": "Village Kurri Beesbagla, P.O. Mallot, Tehsil and District Bagh Ajk",
+      "empcontactno": "3495822994",
+      "empfatherno": "3438816961",
+      "maritialstatus": "Single",
+      "familycount": "6",
+      "fatherjob": "Guard",
+      "emppreviousjob": "Celebex Cummunication pvt ltd.",
+      "referenceby": "Abdul Ghafoor",
+      "refcontact": "3438816961",
+      "refadd": "Village Kurri Beesbagla, P.O. Mallot, Tehsil and District Bagh Ajk",
+      "dateofjoining": "27-7-2023",
+      "salary": "40000",
+      "status": "Active",
+      "documents": [
+        "https://raw.githubusercontent.com/Hamza123455/masterfile/main/documents/65267/1761384444590_17613844253495074464497537631812.jpg"
+      ]
     }
   ]
 }
