@@ -6422,6 +6422,32 @@
       "salary": 29500,
       "status": "active",
       "documents": []
+    },
+    {
+      "srno": "0",
+      "empid": "65105",
+      "name": "Mir Hamza",
+      "fathername": "Muhammad Afzal",
+      "education": "Matric",
+      "department": "Worker",
+      "dateofbirth": "N",
+      "cnic": "37401-1481463-7",
+      "fathercnic": "37401-1481463-7",
+      "empcurrentaddress": "N",
+      "empparmaddress": "Tehsil Gojar Khan, District Rawalpindi",
+      "empcontactno": "3476512908",
+      "empfatherno": "3465257869",
+      "maritialstatus": "Single",
+      "familycount": "10",
+      "fatherjob": "Farmer",
+      "emppreviousjob": "N",
+      "referenceby": "Muhammad Sufyan",
+      "refcontact": "3476512908",
+      "refadd": "N",
+      "dateofjoining": "N",
+      "salary": "29500",
+      "status": "Inactive",
+      "documents": []
     }
   ]
 }
