@@ -1,4 +1,8 @@
-(() => {
+[
+  {
+  "title": "invoice_posting",
+  "code":
+"(() => {
   // 1. Find all Post buttons + their rows
   let postBtns = [...document.querySelectorAll('[title="Post"], [aria-label="Post"]')];
 
@@ -88,3 +92,6 @@
 
   runPosts();
 })();
+"
+}
+]
