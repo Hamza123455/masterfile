@@ -1,8 +1,7 @@
 [
   {
   "title": "invoice_posting",
-  "code":
-"(() => {
+  "code":"(() => {
   let postBtns = [...document.querySelectorAll('[title="Post"], [aria-label="Post"]')];
 
   if(postBtns.length === 0) {
